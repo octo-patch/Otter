@@ -41,7 +41,9 @@ PROVIDER_CONFIGS: Dict[str, Dict[str, str]] = {
     },
     "minimax": {
         "api_base": "https://api.minimax.io/v1",
-        "default_model": "MiniMax-M2.7",
+        # Default model: MiniMax-M3 (latest, 512K context, 128K max output, image input support).
+        # Other supported models: MiniMax-M2.7, MiniMax-M2.7-highspeed.
+        "default_model": "MiniMax-M3",
         "api_key_env": "MINIMAX_API_KEY",
     },
 }

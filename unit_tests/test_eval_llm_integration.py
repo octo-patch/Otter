@@ -24,7 +24,7 @@ class TestMiniMaxIntegration(unittest.TestCase):
         self.client = EvalLLMClient(
             provider="minimax",
             api_key=MINIMAX_API_KEY,
-            model="MiniMax-M2.7",
+            model="MiniMax-M3",
         )
 
     def test_basic_chat_completion(self):

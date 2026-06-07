@@ -8,7 +8,7 @@
 ![](https://img.shields.io/github/stars/luodian/otter?style=social)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FLuodian%2Fotter&count_bg=%23FFA500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 [![litellm](https://img.shields.io/badge/%20%F0%9F%9A%85%20liteLLM-OpenAI%7CAzure%7CAnthropic%7CPalm%7CCohere-blue?color=green)](https://github.com/BerriAI/litellm)
-[![MiniMax](https://img.shields.io/badge/MiniMax-M2.7-blue)](https://www.minimax.io)
+[![MiniMax](https://img.shields.io/badge/MiniMax-M3-blue)](https://www.minimax.io)
 
 [Project Credits](https://github.com/Luodian/Otter/blob/main/docs/credits.md) | [Otter Paper](https://arxiv.org/abs/2305.03726) | [OtterHD Paper](https://arxiv.org/abs/2311.04219) | [MIMIC-IT Paper](https://arxiv.org/abs/2306.05425)
 
@@ -76,14 +76,14 @@ For who in the mainland China: [![Open in OpenXLab](https://cdn-static.openxlab.
    ```bash
    # For Syphus data generation (via liteLLM)
    export MINIMAX_API_KEY="your-minimax-key"
-   export OPENAI_API_ENGINE="openai/MiniMax-M2.7"
+   export OPENAI_API_ENGINE="openai/MiniMax-M3"
    export OPENAI_API_BASE="https://api.minimax.io/v1"
 
    # For benchmark evaluation (MagnifierBench, MathVista, MM-Vet)
    export EVAL_LLM_PROVIDER="minimax"
    export MINIMAX_API_KEY="your-minimax-key"
    ```
-   MiniMax M2.7 offers 1M context with competitive performance at lower cost. See `pipeline/benchmarks/utils/eval_llm.py` for details.
+   MiniMax M3 offers a 512K context window, up to 128K max output, and image input support. M2.7 and M2.7-highspeed remain available as alternatives. See `pipeline/benchmarks/utils/eval_llm.py` for details.
 
 **[2023-07]: Anouncing MIMIC-IT dataset for multiple interleaved image-text/video instruction tuning.**
 

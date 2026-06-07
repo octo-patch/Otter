@@ -19,7 +19,7 @@ class TestProviderConfigs(unittest.TestCase):
     def test_minimax_config_exists(self):
         self.assertIn("minimax", PROVIDER_CONFIGS)
         self.assertEqual(PROVIDER_CONFIGS["minimax"]["api_base"], "https://api.minimax.io/v1")
-        self.assertEqual(PROVIDER_CONFIGS["minimax"]["default_model"], "MiniMax-M2.7")
+        self.assertEqual(PROVIDER_CONFIGS["minimax"]["default_model"], "MiniMax-M3")
         self.assertEqual(PROVIDER_CONFIGS["minimax"]["api_key_env"], "MINIMAX_API_KEY")
 
 
@@ -37,12 +37,12 @@ class TestEvalLLMClientInit(unittest.TestCase):
         client = EvalLLMClient(provider="minimax", api_key="test-key")
         self.assertEqual(client.provider, "minimax")
         self.assertEqual(client.api_base, "https://api.minimax.io/v1")
-        self.assertEqual(client.model, "MiniMax-M2.7")
+        self.assertEqual(client.model, "MiniMax-M3")
         self.assertEqual(client.api_key, "test-key")
 
     def test_custom_model_override(self):
-        client = EvalLLMClient(provider="minimax", api_key="key", model="MiniMax-M2.5")
-        self.assertEqual(client.model, "MiniMax-M2.5")
+        client = EvalLLMClient(provider="minimax", api_key="key", model="MiniMax-M2.7")
+        self.assertEqual(client.model, "MiniMax-M2.7")
 
     def test_custom_api_base_override(self):
         client = EvalLLMClient(provider="openai", api_key="key", api_base="https://custom.api.com/v1")
@@ -142,7 +142,7 @@ class TestChatCompletion(unittest.TestCase):
         mock_response.raise_for_status = MagicMock()
         mock_response.json.return_value = {
             "choices": [{"message": {"content": "<think>analyzing...</think>\n0.8"}}],
-            "model": "MiniMax-M2.7",
+            "model": "MiniMax-M3",
         }
         mock_post.return_value = mock_response
 
@@ -227,7 +227,7 @@ class TestChatCompletionRaw(unittest.TestCase):
     def test_minimax_strips_think_tags_in_raw(self, mock_post):
         response_data = {
             "choices": [{"message": {"content": "<think>thinking</think>\n0.9"}}],
-            "model": "MiniMax-M2.7",
+            "model": "MiniMax-M3",
         }
         mock_response = MagicMock()
         mock_response.raise_for_status = MagicMock()
@@ -251,9 +251,9 @@ class TestGetEvalLLMClient(unittest.TestCase):
         self.assertEqual(client.provider, "openai")
 
     def test_creates_minimax_client(self):
-        client = get_eval_llm_client(provider="minimax", api_key="key", model="MiniMax-M2.5")
+        client = get_eval_llm_client(provider="minimax", api_key="key", model="MiniMax-M2.7")
         self.assertEqual(client.provider, "minimax")
-        self.assertEqual(client.model, "MiniMax-M2.5")
+        self.assertEqual(client.model, "MiniMax-M2.7")
 
 
 if __name__ == "__main__":

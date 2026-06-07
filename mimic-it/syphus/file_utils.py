@@ -9,7 +9,7 @@ OpenAI (default):
 
 MiniMax:
     export MINIMAX_API_KEY="your-minimax-key"
-    export OPENAI_API_ENGINE="openai/MiniMax-M2.7"
+    export OPENAI_API_ENGINE="openai/MiniMax-M3"
     export OPENAI_API_BASE="https://api.minimax.io/v1"
 
 See https://docs.litellm.ai/docs/providers for all supported providers.
